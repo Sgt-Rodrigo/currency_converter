@@ -34,38 +34,39 @@ function App() {
 
   return (
     <>
-      <InputBox 
-        label='From'
-        amount={amount}
-        selectedCurrency={from}
-        currencyOptions={currencies}
-        onAmountChange={(amount)=> setAmount(amount)}
-        onCurrencyChange={(currency)=> setFrom(currency)}
-        amountDisabled = {false}
-        currencyDisabled = {false}
+      <div className='flex justify-center gap-4 m-4'>
+        <InputBox
+          label='From'
+          amount={amount}
+          selectedCurrency={from}
+          currencyOptions={currencies}
+          onAmountChange={(amount)=> setAmount(amount)}
+          onCurrencyChange={(currency)=> setFrom(currency)}
+          amountDisabled = {false}
+          currencyDisabled = {false}
+        />
+        <OutputBox
+          label='To'
+          amount={convertedAmount}
+          selectedCurrency={to}
+          currencyOptions={currencies}
+          onAmountChange={(amount)=> setConvertedAmount(amount)}
+          onCurrencyChange={(currency)=> setTo(currency)}
+          amountDisabled = {true}
+          currencyDisabled = {false}
+        />
+      </div>
 
-      />
-
-      <OutputBox
-        label='To'
-        amount={convertedAmount}
-        selectedCurrency={to}
-        currencyOptions={currencies}
-        onAmountChange={(amount)=> setConvertedAmount(amount)}
-        onCurrencyChange={(currency)=> setTo(currency)}
-        amountDisabled = {true}
-        currencyDisabled = {false}
-      />
-
-      <button 
-        className='bg-blue-600 p-2 rounded-md text-white'
-        onClick={convert}
-      >convert</button>
-
-      <button
-        className='bg-yellow-600 p-2 rounded-md text-black'
-        onClick={swap}
-      >Swap</button>
+      <div className='flex flex-col items-center gap-4 m-4'>
+        <button
+          className='bg-blue-600 p-2 rounded-md text-white w-fit'
+          onClick={convert}
+        >convert</button>
+        <button
+          className='bg-yellow-600 p-2 rounded-md text-black w-fit'
+          onClick={swap}
+        >Swap</button>
+      </div>
     </>
   )
 }
